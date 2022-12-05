@@ -28,7 +28,7 @@ MRuby::CrossBuild.new('x86_64-alpine-linux-musl') do |conf|
 end
 ```
 
-For _darwin_ add this target to your `build_config.rb`:
+For _darwin-x64_ add this target to your `build_config.rb`:
 
 ```ruby
 MRuby::CrossBuild.new('x86_64-apple-darwin19') do |conf|
@@ -44,6 +44,27 @@ MRuby::CrossBuild.new('x86_64-apple-darwin19') do |conf|
 
   conf.build_target     = 'x86_64-pc-linux-gnu'
   conf.host_target      = 'x86_64-apple-darwin19'
+end
+```
+
+For _darwin-arm64_ add this target to your `build_config.rb`:
+
+```ruby
+MRuby::CrossBuild.new('arm64-apple-darwin19') do |conf|
+  toolchain :clang
+
+  [conf.cc, conf.linker].each do |cc|
+    cc.command = 'arm64-apple-darwin20.4-clang'
+    cc.flags << '-mmacosx-version-min=10.15'
+  end
+
+  conf.cxx.command      = 'arm64-apple-darwin20.4-clang++'
+  conf.archiver.command = 'arm64-apple-darwin20.4-ar'
+
+  conf.build_target     = 'arm64-pc-linux-gnu'
+  conf.host_target      = 'arm64-apple-darwin19'
+
+  gem_config(conf)
 end
 ```
 
