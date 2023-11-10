@@ -34,3 +34,8 @@ desc 'Push image'
 task :push do
   sh 'docker push skatzer/mrubycross:kinetic'
 end
+
+desc 'Pull image'
+task :push do
+  sh 'docker pull skatzer/mrubycross:kinetic'
+end
