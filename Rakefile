@@ -22,12 +22,12 @@
 
 desc 'Build image'
 task :build do
-  sh 'docker build -t skatzer/mrubycross:bullseye .'
+  sh 'docker build --platform=linux/amd64 -t skatzer/mrubycross:bullseye .'
 end
 
 desc 'Shell into container'
 task :shell do
-  sh 'docker run -ti skatzer/mrubycross:bullseye /bin/bash -l'
+  sh 'docker run --platform=linux/amd64 -ti skatzer/mrubycross:bullseye /bin/bash -l'
 end
 
 desc 'Push image'

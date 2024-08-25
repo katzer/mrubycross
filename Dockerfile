@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FROM --platform=linux/amd64 debian:bullseye-backports
+FROM debian:bullseye-backports
 
 LABEL maintainer="katzer.sebastian@googlemail.com"
 
