@@ -110,4 +110,4 @@ ENV GLIBC_HEADERS /opt/glibc/version_headers
 COPY --chmod=740 glibc-check /usr/local/bin
 
 # mruby utils
-RUN gem install mruby_utils:3.1.0
+RUN gem install mruby_utils:3.2.0
