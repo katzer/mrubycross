@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FROM --platform=linux/amd64 ubuntu:22.10
+FROM ubuntu:22.10
 
 LABEL maintainer="katzer.sebastian@googlemail.com"
 

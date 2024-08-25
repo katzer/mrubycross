@@ -22,12 +22,12 @@
 
 desc 'Build image'
 task :build do
-  sh 'docker build -t skatzer/mrubycross:kinetic .'
+  sh 'docker build --platform=linux/amd64 -t skatzer/mrubycross:kinetic .'
 end
 
 desc 'Shell into container'
 task :shell do
-  sh 'docker run -ti skatzer/mrubycross:kinetic /bin/bash -l'
+  sh 'docker run --platform=linux/amd64 -ti skatzer/mrubycross:kinetic /bin/bash -l'
 end
 
 desc 'Push image'
