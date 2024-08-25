@@ -97,4 +97,4 @@ RUN mkdir -p $HOME/.ssh && \
     echo '/etc/init.d/ssh start\nssh-add $HOME/.ssh/dev.key' > $HOME/.sshrc
 
 # mruby utils
-RUN gem install mruby_utils:3.1.0
+RUN gem install mruby_utils:3.2.0
