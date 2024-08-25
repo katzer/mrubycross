@@ -81,9 +81,9 @@ RUN git clone -q --depth=1 https://github.com/tpoechtrager/osxcross.git /opt/osx
         tzdata \
         wget \
         xz-utils
-ENV PATH /opt/osxcross/target/bin:$PATH
-ENV MACOSX_DEPLOYMENT_TARGET 10.15
-ENV OSXCROSS_MP_INC 1
+ENV PATH=/opt/osxcross/target/bin:$PATH
+ENV MACOSX_DEPLOYMENT_TARGET=10.15
+ENV OSXCROSS_MP_INC=1
 
 # sshd
 RUN mkdir -p $HOME/.ssh && \
