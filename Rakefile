@@ -36,6 +36,6 @@ task :push do
 end
 
 desc 'Pull image'
-task :push do
+task :pull do
   sh 'docker pull skatzer/mrubycross:kinetic'
 end
