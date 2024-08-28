@@ -32,12 +32,12 @@ RUN apt update && \
         ca-certificates && \
     update-ca-certificates && \
     curl -sS 'https://apt.llvm.org/llvm-snapshot.gpg.key' | gpg --dearmor | tee /usr/share/keyrings/llvm-snapshot.gpq && \
-    echo 'deb [signed-by=/usr/share/keyrings/llvm-snapshot.gpq] http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-18 main' >> /etc/apt/sources.list && \
+    echo 'deb [signed-by=/usr/share/keyrings/llvm-snapshot.gpq] http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-17 main' >> /etc/apt/sources.list && \
     apt update && \
     apt upgrade -y && \
     apt install -y --no-install-recommends \
         bison \
-        clang-18 \
+        clang-17 \
         git \
         mingw-w64 \
         musl \
@@ -45,7 +45,7 @@ RUN apt update && \
         openssh-server \
         ruby \
         tar && \
-    cd /usr/bin && ln -s clang-18 clang && ln -s clang-cpp-18 clang-cpp && ln -s clang++-18 clang++ && \
+    cd /usr/bin && ln -s clang-17 clang && ln -s clang-cpp-17 clang-cpp && ln -s clang++-17 clang++ && \
     apt remove -y --auto-remove gnupg && \
     apt clean && apt autoremove -y
 
@@ -58,7 +58,7 @@ RUN git clone -q --depth=1 https://github.com/katzer/osxcross.git /opt/osxcross 
     DEBIAN_FRONTEND="noninteractive" TZ="Europe/Berlin" \
     apt install -y --no-install-recommends \
         cmake \
-        libc++-18-dev \
+        libc++-17-dev \
         libssl-dev \
         libxml2-dev \
         lzma-dev \
@@ -70,9 +70,9 @@ RUN git clone -q --depth=1 https://github.com/katzer/osxcross.git /opt/osxcross 
         xz-utils && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     cd /opt/osxcross/tarballs && \
-    curl -L -o MacOSX11.3.sdk.tar.xz https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX11.3.sdk.tar.xz && \
+    curl -L -o MacOSX11.3.sdk.tar.xz https://github.com/joseluisq/macosx-sdks/releases/download/11.3/MacOSX11.3.sdk.tar.xz && \
     tar -xvf MacOSX11.3.sdk.tar.xz -C . && \
-    cp -rf /usr/lib/llvm-18/include/c++ MacOSX11.3.sdk/usr/include/c++ && \
+    cp -rf /usr/lib/llvm-17/include/c++ MacOSX11.3.sdk/usr/include/c++ && \
     cp -rf /usr/include/x86_64-linux-gnu/c++/10/bits/ MacOSX11.3.sdk/usr/include/c++/v1/bits && \
     tar -cJf MacOSX11.3.sdk.tar.xz MacOSX11.3.sdk && \
     cd /opt/osxcross && \
@@ -80,7 +80,7 @@ RUN git clone -q --depth=1 https://github.com/katzer/osxcross.git /opt/osxcross 
     rm -rf *~ build tarballs/* && \
     apt remove -y --auto-remove \
         cmake \
-        libc++-18-dev \
+        libc++-17-dev \
         libssl-dev \
         libxml2-dev \
         lzma-dev \
